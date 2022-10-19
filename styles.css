@@ -1,0 +1,46 @@
+section {
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: #333;
+    color: white;
+}
+
+body {
+    margin: 0;
+}
+
+.title {
+ font-size: 7rem;
+ color: white;
+ text-shadow: 0 0 5px black;
+}
+
+img.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+
+}
+
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+
+
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    transform-style: preserve-3d;
+}
