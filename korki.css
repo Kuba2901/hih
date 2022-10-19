@@ -13,7 +13,7 @@ article {
   padding: 1rem;
 }
 
-article h1, p{
+article h1, h2, p{
   color: #f2f2f2;
 }
 
@@ -48,13 +48,20 @@ article h1, p{
 }
 
 section.intro {
-  padding: 2rem;
+  padding: 1rem;
   color: #f2f2f2;
+  max-width:60%;
+  margin: auto;
 }
 
 header h1 {
   text-align: center;
-  font-size: 5rem;
+  font-size: 4rem;
+}
+
+header h2 {
+    text-align: center;
+    font-size: 2rem;
 }
 
 section.intro h1{
@@ -66,49 +73,46 @@ section.intro p {
   font-size: 1.3rem;
 }
 
+
+section.intro img:hover {
+  transform: scale(1.05);
+  transition: transform .5s ease;
+}
+
+
 div.spacer {
-  height: 7vh;
+    height: 12vh;
 }
 
-/* Galeria */
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
+div.container {
+    background-color: #f2f2f2;
+    height: 90vh;
+    max-width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    margin: auto;
 }
 
-div.gallery img {
-  width: 100%;
-  object-fit: cover;
+div.container p {
+    color: #000000;
 }
 
-div.gallery img:hover {
-  transform: scale(1.1);
-  transition: transform .25s ease;
+div.right-div img {
+    /* height: 100%; */
+    /* width: 100%; */
+    max-width: 50%;
+    object-fit: cover;
 
 }
 
-div.desc {
-  padding: 15px;
-  text-align: center;
-  color: #f2f2f2;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 33.33%;
-  padding: 5px;
-}
-
-
-
-
+/* div.left-div {
+    max-width: 50%;
+    width: 50%;
+} */

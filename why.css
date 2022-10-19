@@ -48,13 +48,15 @@ article h1, p{
 }
 
 section.intro {
-  padding: 2rem;
+  padding: 1rem;
   color: #f2f2f2;
+  max-width:60%;
+  margin: auto;
 }
 
 header h1 {
   text-align: center;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 section.intro h1{
@@ -66,49 +68,25 @@ section.intro p {
   font-size: 1.3rem;
 }
 
+section.intro img {
+    max-width: 60%;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+section.intro img:hover {
+  transform: scale(1.05);
+  transition: transform .5s ease;
+}
+
+
 div.spacer {
-  height: 7vh;
+    height: 12vh;
 }
 
-/* Galeria */
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
-
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  object-fit: cover;
-}
-
-div.gallery img:hover {
-  transform: scale(1.1);
-  transition: transform .25s ease;
-
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-  color: #f2f2f2;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 33.33%;
-  padding: 5px;
-}
-
-
-
-
