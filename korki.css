@@ -47,13 +47,6 @@ article h1, h2, p{
   top: 0%;
 }
 
-section.intro {
-  padding: 1rem;
-  color: #f2f2f2;
-  max-width:60%;
-  margin: auto;
-}
-
 header h1 {
   text-align: center;
   font-size: 4rem;
@@ -64,55 +57,12 @@ header h2 {
     font-size: 2rem;
 }
 
-section.intro h1{
-  font-size: 3rem;
-  color: #f2f2f2;
-}
-
-section.intro p {
-  font-size: 1.3rem;
-}
-
-
-section.intro img:hover {
-  transform: scale(1.05);
-  transition: transform .5s ease;
+section.form {
+  margin: auto;
+  max-width: 60%;
+  height: auto;
+  background-color: #f2f2f2;
 }
 
 
-div.spacer {
-    height: 12vh;
-}
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-div.container {
-    background-color: #f2f2f2;
-    height: 90vh;
-    max-width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    margin: auto;
-}
-
-div.container p {
-    color: #000000;
-}
-
-div.right-div img {
-    /* height: 100%; */
-    /* width: 100%; */
-    max-width: 50%;
-    object-fit: cover;
-
-}
-
-/* div.left-div {
-    max-width: 50%;
-    width: 50%;
-} */

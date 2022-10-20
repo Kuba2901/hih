@@ -50,7 +50,6 @@ article h1, p{
 section.intro {
   padding: 1rem;
   color: #f2f2f2;
-  max-width:60%;
   margin: auto;
 }
 
@@ -59,17 +58,17 @@ header h1 {
   font-size: 4rem;
 }
 
-section.intro h1{
+section.intro h2{
   font-size: 3rem;
   color: #f2f2f2;
 }
 
 section.intro p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 section.intro img {
-    max-width: 60%;
+    max-width: 70%;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 25px;
     object-fit: cover;
@@ -88,5 +87,50 @@ div.spacer {
 .container {
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+}
+
+/* Create three equal columns that float next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding-bottom: 20vh;
+  text-align: center;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column img {
+  float: center;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+  section.intro p {
+    font-size: 1rem;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  section.intro h2 {
+    font-size: 2rem;
+  }
+}
+
+footer {
+  color: #f2f2f2;
+  text-align: center;
+  padding-bottom: 5vh;
 }
