@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/korki.css">
+    <title>Statystyki</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="dropdown">
+          <div class="dropbtn">Home
+            <a href="/sites/index.html"></a>
+          </div>
+          <div class="dropdown-content">
+            <a href="/sites/index.html#skromne-p">Skromne Początki</a>
+            <a href="/sites/index.html#punkt-z">Punkt zwrotny</a>
+            <a href="/sites/index.html#nastepny-k">Następny krok</a>
+          </div>
+        </div>
+        <a href="/sites/why.html">Dlaczego</a>
+        <a href="/sites/stats.html">Informacje</a>
+        <a class="active" href="/sites/korki.html">Korki</a>
+        <a href="/sites/login.html" id="loggedMessage">Zaloguj się</a>
+      </div>
+    <article>
+        <header>
+          <h1>Zapisz się na korepetycje</h1>
+          <h2>
+            Umów się na zajęcia indywidualne ze mną z języków angielskiego lub francuskiego
+          </h2>
+        </header>
+    </article>
+    <section style="background-color: #000000;" class="form">
+        <div class="column">
+          <form action="../korki.php" method="get">
+            <label for="firstName">Imię</label><br>
+            <input type="text" id="firstName" name="firstName"><br><br>
+            <label for="lastName">Nazwisko</label><br>
+            <input type="text" id="lastName" name="lastName"><br><br>
+            <label for="email">Adres email</label><br>
+            <input type="text" id="email" name="email"><br><br>
+            <p>Wybierz język</p>
+            <input type="radio" id="french" name="lang" value="Francuski">
+            <label for="lang">Francuski</label><br>
+            <input type="radio" id="english" name="lang" value="Angielski">          
+            <label for="lang">Angielski</label><br><br>
+            <p>Poziom języka</p>
+            <input type="radio" id="a1" name="level" value="A1">
+            <label for="lang">A1</label><br>
+            <input type="radio" id="a2" name="level" value="A2">          
+            <label for="lang">A2</label><br><br>
+            <input type="radio" id="b1" name="level" value="B1">
+            <label for="lang">B1</label><br>
+            <input type="radio" id="b2" name="level" value="B2">          
+            <label for="lang">B2</label><br><br>
+            <input type="radio" id="c1" name="level" value="C1">
+            <label for="lang">C1</label><br>
+            <input type="radio" id="c2" name="level" value="C1">          
+            <label for="lang">C2</label><br><br>
+            <label for="hours">Liczba godzin w tygodniu</label><br>
+            <select id="hours" name="hours">
+              <option value="1">1</option>
+              <option value="1,5">1,5</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <br>
+            <br>
+            <label for="online">Czy preferujesz zajęcia online?</label><br>
+            <input type="checkbox" name="online" id="onlineCheckBox"><br>
+            <br>
+            <h2 style="color: #000000;">Zakończ formularz</h2><br>
+            <input type="submit" name="submitBtn" id="submitBtn">
+            <input type="reset">
+        </form>
+        </div>
+    </section>
+    <div>
+      <svg height="210" width="500">
+        <polygon points="100,10 40,198 190,78 10,78 160,198"
+        style="fill:yellow;stroke-width:5;fill-rule:nonzero;" />
+      </svg>
+    </div>
+    <footer class="ftr">
+        <p>Jakub Nenczak, 5, 19.10.2022</p>
+    </footer>
+</body>
+</html>
