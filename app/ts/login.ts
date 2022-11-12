@@ -36,7 +36,7 @@ window.onload = function() {
 
     function logoutUser() {
         console.log("Button clicked");
-        sessionStorage.clear();
+        sessionStorage.removeItem("currentUserCredentials");
 
         // @ts-ignore
         loginForm?.style.display = "block";

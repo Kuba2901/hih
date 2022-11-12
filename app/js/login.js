@@ -6,6 +6,7 @@ window.onload = function () {
     var loginMessage = document.getElementById("loginMessage");
     var formSection = document.getElementById("formSection");
     var loggedMessage = document.getElementById("loggedMessage");
+    
     // @ts-ignore
     formSection === null || formSection === void 0 ? void 0 : formSection.style.display = 'block';
     // @ts-ignore

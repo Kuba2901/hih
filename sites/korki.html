@@ -5,6 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/korki.css">
+    <link rel="stylesheet" href="/jQueryUI/jquery-ui-1.13.2.custom/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+
+    $( function() {
+      $( document ).tooltip();
+    } );
+
+    </script>
+    <script src="/app/js/korki_dialog.js"></script>
     <title>Statystyki</title>
 </head>
 <body>
@@ -24,6 +41,20 @@
         <a class="active" href="/sites/korki.html">Korki</a>
         <a href="/sites/login.html" id="loggedMessage">Zaloguj się</a>
       </div>
+      <div class="ui-widget" id="success-alert" style="display: none;">
+        <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em; background-color: #1b1b1b;">
+          <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+          <strong>Sukces!</strong> Formularz został przesłany.</p>
+        </div>
+      </div>
+      <br>
+      <div class="ui-widget" id="error-alert" style="display: none;">
+        <div class="ui-state-error ui-corner-all" style="padding: 0 .7em; background-color: #1b1b1b;">
+          <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+            <strong>Błąd!</strong> Niektóre z pól nie zostały wypełnione.</p>
+        </div>
+      </div>
+  
     <article>
         <header>
           <h1>Zapisz się na korepetycje</h1>
@@ -32,53 +63,59 @@
           </h2>
         </header>
     </article>
-    <section style="background-color: #000000;" class="form">
-        <div class="column">
-          <form action="../korki.php" method="get">
-            <label for="firstName">Imię</label><br>
-            <input type="text" id="firstName" name="firstName"><br><br>
-            <label for="lastName">Nazwisko</label><br>
-            <input type="text" id="lastName" name="lastName"><br><br>
-            <label for="email">Adres email</label><br>
-            <input type="text" id="email" name="email"><br><br>
-            <p>Wybierz język</p>
-            <input type="radio" id="french" name="lang" value="Francuski">
-            <label for="lang">Francuski</label><br>
-            <input type="radio" id="english" name="lang" value="Angielski">          
-            <label for="lang">Angielski</label><br><br>
-            <p>Poziom języka</p>
-            <input type="radio" id="a1" name="level" value="A1">
-            <label for="lang">A1</label><br>
-            <input type="radio" id="a2" name="level" value="A2">          
-            <label for="lang">A2</label><br><br>
-            <input type="radio" id="b1" name="level" value="B1">
-            <label for="lang">B1</label><br>
-            <input type="radio" id="b2" name="level" value="B2">          
-            <label for="lang">B2</label><br><br>
-            <input type="radio" id="c1" name="level" value="C1">
-            <label for="lang">C1</label><br>
-            <input type="radio" id="c2" name="level" value="C1">          
-            <label for="lang">C2</label><br><br>
-            <label for="hours">Liczba godzin w tygodniu</label><br>
-            <select id="hours" name="hours">
-              <option value="1">1</option>
-              <option value="1,5">1,5</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-            <br>
-            <br>
-            <label for="online">Czy preferujesz zajęcia online?</label><br>
-            <input type="checkbox" name="online" id="onlineCheckBox"><br>
-            <br>
-            <h2 style="color: #000000;">Zakończ formularz</h2><br>
-            <input type="submit" name="submitBtn" id="submitBtn">
-            <input type="reset">
-        </form>
-        </div>
+    <section class="form">
+            <form action="" method="get" id="form">
+              <div class="row">
+                <div >
+                  <label for="firstName">Imię</label><br>
+                  <input type="text" id="firstName" name="firstName" title="Pełne imię"><br><br>
+                  <label for="lastName">Nazwisko</label><br>
+                  <input type="text" id="lastName" name="lastName"><br><br>
+                  <label for="email">Adres email</label><br>
+                  <input type="text" id="email" name="email"><br><br>
+                  <p>Wybierz język</p>
+                  <input type="radio" id="french" name="lang" value="Francuski">
+                  <label for="lang">Francuski</label><br>
+                  <input type="radio" id="english" name="lang" value="Angielski" checked>          
+                  <label for="lang">Angielski</label><br><br>
+                  <p>Poziom języka</p>
+                  <input type="radio" id="a1" name="level" value="A1">
+                  <label for="lang">A1</label><br>
+                  <input type="radio" id="a2" name="level" value="A2">          
+                  <label for="lang">A2</label><br><br>
+                  <input type="radio" id="b1" name="level" value="B1" checked>
+                  <label for="lang">B1</label><br>
+                  <input type="radio" id="b2" name="level" value="B2">          
+                  <label for="lang">B2</label><br><br>
+                  <input type="radio" id="c1" name="level" value="C1">
+                  <label for="lang">C1</label><br>
+                  <input type="radio" id="c2" name="level" value="C1">          
+                  <label for="lang">C2</label><br><br>
+                </div>
+                <div>
+                  <label for="firstName">Data pierwszych zajęć</label><br>
+                  <input type="text" id="datepicker" name="datepicker" placeholder="dd/mm/yyyy"><br><br>
+                  <label for="hours">Liczba godzin w tygodniu</label><br>
+                  <select id="hours" name="hours">
+                    <option value="1">1</option>
+                    <option value="1,5">1,5</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  <br>
+                  <br>
+                  <label for="online">Czy preferujesz zajęcia online?</label><br>
+                  <input type="checkbox" name="online" id="onlineCheckBox"><br>
+                  <br>
+                  <h2 style="color: #f2f2f2;">Zakończ formularz</h2><br>
+                  <input type="submit" name="submitBtn" id="submitBtn">
+                  <input type="reset">
+                </div>
+              </div>
+          </form>
     </section>
     <div>
-      <svg height="210" width="500">
+      <svg style="height: 300px; width: 300px">
         <polygon points="100,10 40,198 190,78 10,78 160,198"
         style="fill:yellow;stroke-width:5;fill-rule:nonzero;" />
       </svg>
@@ -88,3 +125,5 @@
     </footer>
 </body>
 </html>
+
+

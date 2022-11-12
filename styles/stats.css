@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #000000;
+    background-color: #121212;
 
   }
   
@@ -21,7 +21,7 @@ article h1, p{
 /* Navbar container */
 .navbar {
   overflow: hidden;
-  background-color: #070707;
+  background-color: #202020;
   font-family: Arial;
 }
 
