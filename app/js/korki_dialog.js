@@ -2,11 +2,9 @@ window.onload = function () {
     var submitBtn = document.getElementById("submitBtn");
     var form = document.getElementById("form");
     function validateForm() {
-        // FIELDS
         var firstName = document.getElementById("firstName");
         var lastName = document.getElementById("lastName");
         var email = document.getElementById("email");
-        // Validate
         if (firstName.value != "" && lastName.value != "" && email.value != "") {
             showMessage(true);
         }
