@@ -5,8 +5,11 @@ window.onload = function () {
     var loggedIn = document.getElementById("loggedIn");
     var loginMessage = document.getElementById("loginMessage");
     var formSection = document.getElementById("formSection");
+    ;
     var loggedMessage = document.getElementById("loggedMessage");
-    
+    ;
+    var logOrReg = document.getElementById("logOrReg");
+    ;
     // @ts-ignore
     formSection === null || formSection === void 0 ? void 0 : formSection.style.display = 'block';
     // @ts-ignore
@@ -24,17 +27,19 @@ window.onload = function () {
         // @ts-ignore
         loggedIn === null || loggedIn === void 0 ? void 0 : loggedIn.style.display = "block";
         // @ts-ignore
+        logOrReg === null || logOrReg === void 0 ? void 0 : logOrReg.innerText = 'Logowanie przebiegło';
+        // @ts-ignore
         loginMessage === null || loginMessage === void 0 ? void 0 : loginMessage.innerText = "Zalogowano jako: ".concat(JSON.parse(sessionStorage.getItem("currentUserCredentials"))['email']);
         // @ts-ignore
         loggedMessage === null || loggedMessage === void 0 ? void 0 : loggedMessage.innerText = "Zalogowano!";
     }
     function logoutUser() {
-        console.log("Button clicked");
-        sessionStorage.clear();
+        sessionStorage.removeItem("currentUserCredentials");
         // @ts-ignore
         loginForm === null || loginForm === void 0 ? void 0 : loginForm.style.display = "block";
         // @ts-ignore
         loggedIn === null || loggedIn === void 0 ? void 0 : loggedIn.style.display = "none";
+        removeAdditionalMessage();
     }
     function logUser() {
         var _a, _b;
@@ -44,7 +49,6 @@ window.onload = function () {
         var emailValue = (_a = emailInput.value) !== null && _a !== void 0 ? _a : "";
         var passwordInput = document.getElementById("password");
         var passwordValue = (_b = passwordInput.value) !== null && _b !== void 0 ? _b : "";
-        // Fetch all users
         var users = [];
         for (var i = 0; i < localStorage.length; i++) {
             var key = localStorage.key(i);
@@ -55,7 +59,6 @@ window.onload = function () {
             for (var i = 0; i < users.length; i++) {
                 var foundEmail = users[i]["email"];
                 var foundPassword = users[i]["password"];
-                console.log(foundEmail);
                 if (emailValue == foundEmail && passwordValue == foundPassword) {
                     userExists = true;
                     user = users[i];
@@ -71,29 +74,28 @@ window.onload = function () {
                     "password": userPassword
                 };
                 sessionStorage.setItem("currentUserCredentials", JSON.stringify(foundUser));
-                // show login success div, set the message and hide the login form
                 // @ts-ignore
                 loggedIn.style.display = "block";
+                // @ts-ignore
+                logOrReg === null || logOrReg === void 0 ? void 0 : logOrReg.innerText = 'Logowanie przebiegło';
                 // @ts-ignore
                 loginMessage === null || loginMessage === void 0 ? void 0 : loginMessage.innerText = "Zalogowano jako: ".concat(emailValue);
                 // @ts-ignore
                 loginForm.style.display = "none";
             }
             else {
-                console.log("User not found on list");
                 var newUser = {
                     "email": emailValue,
                     "password": passwordValue
                 };
-                // Add user credentials to localStorage and sessionStorage
                 localStorage.setItem("userCredentials".concat(localStorage.length), JSON.stringify(newUser));
                 sessionStorage.setItem("currentUserCredentials", JSON.stringify(newUser));
-                console.log("User created with email: ".concat(emailValue));
-                // show login success div, set the message and hide the login form
                 // @ts-ignore
                 loggedIn.style.display = "block";
                 // @ts-ignore
                 loginForm.style.display = "none";
+                // @ts-ignore
+                logOrReg === null || logOrReg === void 0 ? void 0 : logOrReg.innerText = 'Rejestracja przebiegła';
                 // @ts-ignore
                 loginMessage === null || loginMessage === void 0 ? void 0 : loginMessage.innerText = "Zarejestrowano jako: ".concat(emailValue);
             }
@@ -103,11 +105,8 @@ window.onload = function () {
                 "email": emailValue,
                 "password": passwordValue
             };
-            // Add user credentials to localStorage and sessionStorage
             localStorage.setItem("userCredentials".concat(localStorage.length), JSON.stringify(newUser));
             sessionStorage.setItem("currentUserCredentials", JSON.stringify(newUser));
-            console.log("User created with email: ".concat(emailValue));
-            // show login success div, set the message and hide the login form
             // @ts-ignore
             loggedIn.style.display = "block";
             // @ts-ignore
@@ -117,6 +116,19 @@ window.onload = function () {
         }
         // @ts-ignore
         loggedMessage === null || loggedMessage === void 0 ? void 0 : loggedMessage.innerText = "Zalogowano!";
+        createAdditionalMessage();
+    }
+    function createAdditionalMessage() {
+        var formSection = document.getElementById("formSection");
+        var loginFeatures = document.createElement("p");
+        loginFeatures.id = "loginFeatures";
+        loginFeatures.innerText = "Logowanie w przyszłości zapewni Ci dostęp do podglądu terminów lekcji, prac domowych i łatwego umawiania następnych spotkań.";
+        loginFeatures.style.color = "#f2f2f2";
+        formSection === null || formSection === void 0 ? void 0 : formSection.appendChild(loginFeatures);
+    }
+    function removeAdditionalMessage() {
+        var loginFeatures = document.getElementById("loginFeatures");
+        loginFeatures === null || loginFeatures === void 0 ? void 0 : loginFeatures.remove();
     }
     loginButton === null || loginButton === void 0 ? void 0 : loginButton.addEventListener("click", function () { return logUser(); });
     logoutButton === null || logoutButton === void 0 ? void 0 : logoutButton.addEventListener("click", function () { return logoutUser(); });

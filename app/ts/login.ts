@@ -1,11 +1,12 @@
 window.onload = function() {
-    var loginButton = document.getElementById("loginButton");
-    var logoutButton = document.getElementById("logoutButton");
-    var loginForm = document.getElementById('loginForm');    
-    var loggedIn = document.getElementById("loggedIn");
-    var loginMessage = document.getElementById("loginMessage");
-    var formSection = document.getElementById("formSection");
-    var loggedMessage = document.getElementById("loggedMessage");
+    const loginButton = document.getElementById("loginButton") as HTMLInputElement;
+    const logoutButton = document.getElementById("logoutButton") as HTMLInputElement;
+    const loginForm = document.getElementById('loginForm') as HTMLElement;    
+    const loggedIn = document.getElementById("loggedIn") as HTMLElement;
+    const loginMessage = document.getElementById("loginMessage") as HTMLElement;
+    const formSection = document.getElementById("formSection") as HTMLElement;;
+    const loggedMessage = document.getElementById("loggedMessage") as HTMLElement;;
+    const logOrReg = document.getElementById("logOrReg") as HTMLElement;;
 
     // @ts-ignore
     formSection?.style.display = 'block';
@@ -26,6 +27,9 @@ window.onload = function() {
         loginForm?.style.display = "none";
         // @ts-ignore
         loggedIn?.style.display = "block";
+        
+        // @ts-ignore
+        logOrReg?.innerText = 'Logowanie przebiegło';
 
         // @ts-ignore
         loginMessage?.innerText = `Zalogowano jako: ${JSON.parse(sessionStorage.getItem("currentUserCredentials"))['email']}`;
@@ -35,13 +39,14 @@ window.onload = function() {
     }
 
     function logoutUser() {
-        console.log("Button clicked");
         sessionStorage.removeItem("currentUserCredentials");
 
         // @ts-ignore
         loginForm?.style.display = "block";
         // @ts-ignore
         loggedIn?.style.display = "none";
+
+        removeAdditionalMessage();
     }
 
 
@@ -56,7 +61,6 @@ window.onload = function() {
         const passwordInput = document.getElementById("password") as HTMLInputElement ;
         const passwordValue = passwordInput.value ?? "";
         
-        // Fetch all users
         const users = [];
         
         for (let i = 0; i < localStorage.length; i++) {
@@ -71,8 +75,6 @@ window.onload = function() {
             for (let i = 0; i < users.length; i++) {
                 const foundEmail = users[i]["email"];
                 const foundPassword = users[i]["password"];
-
-                console.log(foundEmail);
 
                 if (emailValue == foundEmail && passwordValue == foundPassword) {
                     userExists = true;
@@ -93,35 +95,37 @@ window.onload = function() {
 
                 sessionStorage.setItem(`currentUserCredentials`, JSON.stringify(foundUser));
 
-                // show login success div, set the message and hide the login form
                 // @ts-ignore
                 loggedIn.style.display = "block";
+                
+                // @ts-ignore
+                logOrReg?.innerText = 'Logowanie przebiegło';
+                
                 // @ts-ignore
                 loginMessage?.innerText = `Zalogowano jako: ${emailValue}`;
 
                 // @ts-ignore
                 loginForm.style.display = "none";
             } else {
-                console.log("User not found on list");
                 const newUser = {
                     "email": emailValue,
                     "password": passwordValue
                 };
 
-                // Add user credentials to localStorage and sessionStorage
                 localStorage.setItem(`userCredentials${localStorage.length}`, JSON.stringify(newUser));
                 sessionStorage.setItem("currentUserCredentials", JSON.stringify(newUser));
-                console.log(`User created with email: ${emailValue}`);
 
-                // show login success div, set the message and hide the login form
                 // @ts-ignore
                 loggedIn.style.display = "block";
+                
                 // @ts-ignore
                 loginForm.style.display = "none";
+                
+                // @ts-ignore
+                logOrReg?.innerText = 'Rejestracja przebiegła';
+                
                 // @ts-ignore
                 loginMessage?.innerText = `Zarejestrowano jako: ${emailValue}`;
-
-                
             }
         } else {
             const newUser = {
@@ -129,12 +133,9 @@ window.onload = function() {
                 "password": passwordValue
             };
 
-            // Add user credentials to localStorage and sessionStorage
             localStorage.setItem(`userCredentials${localStorage.length}`, JSON.stringify(newUser));
             sessionStorage.setItem("currentUserCredentials", JSON.stringify(newUser));
-            console.log(`User created with email: ${emailValue}`);
 
-            // show login success div, set the message and hide the login form
             // @ts-ignore
             loggedIn.style.display = "block";
             // @ts-ignore
@@ -145,8 +146,26 @@ window.onload = function() {
         
         // @ts-ignore
         loggedMessage?.innerText = "Zalogowano!";
+        
+        createAdditionalMessage();
+    }
+
+    function createAdditionalMessage() {
+        const formSection = document.getElementById("formSection");
+        const loginFeatures = document.createElement("p");
+        loginFeatures.id = "loginFeatures";
+        loginFeatures.innerText = "Logowanie w przyszłości zapewni Ci dostęp do podglądu terminów lekcji, prac domowych i łatwego umawiania następnych spotkań."
+        loginFeatures.style.color = "#f2f2f2";
+        formSection?.appendChild(loginFeatures);
+    }
+    
+    function removeAdditionalMessage() {
+        const loginFeatures = document.getElementById("loginFeatures");
+        loginFeatures?.remove();
     }
 
     loginButton?.addEventListener("click", () => logUser())
     logoutButton?.addEventListener("click", () => logoutUser())
 }
+
+

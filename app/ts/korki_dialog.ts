@@ -1,10 +1,6 @@
 window.onload = function () {
-    const form = document.getElementById("form");
-    const submitBtn = document.getElementById("submitBtn");
-
-    function handleForm(event) { event.preventDefault(); } 
-    form?.addEventListener('submit', handleForm);
-
+    const submitBtn = document.getElementById("submitBtn") as HTMLInputElement;
+    const form = document.getElementById("form") as HTMLElement;
 
     function validateForm() {
         // FIELDS
@@ -15,23 +11,25 @@ window.onload = function () {
         // Validate
         if (firstName.value != "" && lastName.value != "" && email.value != "") {
             showMessage(true);
-        } else {            
+        } else {
             showMessage(false);
         }
     }
 
     function showMessage(success) {
-        const successAlert = document.getElementById("success-alert");
-        const errorAlert = document.getElementById("error-alert");
+        const successAlert = document.getElementById("success-alert") as HTMLElement;
+        const errorAlert = document.getElementById("error-alert") as HTMLElement;
 
-        if (success) {
+        if (success) {            
             // @ts-ignore
             successAlert?.style.display = "block";
+            
             // @ts-ignore
             errorAlert?.style.display = "none";
         } else {
             // @ts-ignore
             successAlert?.style.display = "none";
+            
             // @ts-ignore
             errorAlert?.style.display = "block";
         }
@@ -42,8 +40,7 @@ window.onload = function () {
                 behavior: "smooth"
             }
         )
-        
-    }
+    } 
 
     submitBtn?.addEventListener("click", () => validateForm());
 }

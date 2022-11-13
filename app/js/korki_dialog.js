@@ -1,8 +1,6 @@
 window.onload = function () {
-    var form = document.getElementById("form");
     var submitBtn = document.getElementById("submitBtn");
-    function handleForm(event) { event.preventDefault(); }
-    form === null || form === void 0 ? void 0 : form.addEventListener('submit', handleForm);
+    var form = document.getElementById("form");
     function validateForm() {
         // FIELDS
         var firstName = document.getElementById("firstName");

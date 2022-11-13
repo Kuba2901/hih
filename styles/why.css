@@ -156,9 +156,9 @@ div.spacer {
   clear: both;
 }
 
-.column img {
+/* .column img {
   float: center;
-}
+} */
 
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */

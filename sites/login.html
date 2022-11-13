@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        var p = $("#loggedMessage");
+        for(var i=0; i<3; i++) {
+          p.animate({opacity: 0.2}, 1000, 'linear')
+          .animate({opacity: 1}, 1000, 'linear');
+        }
+      });
+    </script>
     <script src="../app/js/login.js"></script>
     <title>Logowanie</title>
 </head>
@@ -23,11 +34,11 @@
         <a href="/sites/why.html">Dlaczego</a>
         <a href="/sites/stats.html">Informacje</a>
         <a href="/sites/korki.html">Korki</a>
-        <a class="active" href="/sites/login.html" id="loggedMessage">Zaloguj się</a>
+        <a class="active" href="/sites/login.html">Zaloguj się</a>
       </div>
     <article>
         <header>
-          <h1 id="loggedMessage">Zaloguj się</h1> <!-- Update when logged in successfully -->
+          <h1 id="loggedMessage">Zaloguj się</h1>
         </header>
     </article>
     <section style="background-color: #121212; display:none;" class="form" id="formSection">
@@ -51,7 +62,7 @@
           </form>
         </div>
         <div id="loggedIn">
-          Gratulacje! Logowanie przebiegło poprawnie. Miłego korzystania ze strony!
+          Gratulacje! <span id="logOrReg"></span> pomyślnie. Miłego korzystania ze strony!
           <br>
           <span style="text-align:center;" id="loginMessage"></span>
           <br>

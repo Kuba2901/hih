@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../styles/korki.css">
     <link rel="stylesheet" href="/jQueryUI/jquery-ui-1.13.2.custom/jquery-ui.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
@@ -64,7 +63,7 @@
         </header>
     </article>
     <section class="form">
-            <form action="" method="get" id="form">
+            <form action="/korki.php" method="get" id="form">
               <div class="row">
                 <div >
                   <label for="firstName">Imię</label><br>
@@ -75,22 +74,22 @@
                   <input type="text" id="email" name="email"><br><br>
                   <p>Wybierz język</p>
                   <input type="radio" id="french" name="lang" value="Francuski">
-                  <label for="lang">Francuski</label><br>
+                  <label for="french">Francuski</label><br>
                   <input type="radio" id="english" name="lang" value="Angielski" checked>          
-                  <label for="lang">Angielski</label><br><br>
+                  <label for="english">Angielski</label><br><br>
                   <p>Poziom języka</p>
                   <input type="radio" id="a1" name="level" value="A1">
-                  <label for="lang">A1</label><br>
+                  <label for="a1">A1</label><br>
                   <input type="radio" id="a2" name="level" value="A2">          
-                  <label for="lang">A2</label><br><br>
+                  <label for="a2">A2</label><br><br>
                   <input type="radio" id="b1" name="level" value="B1" checked>
-                  <label for="lang">B1</label><br>
+                  <label for="b1">B1</label><br>
                   <input type="radio" id="b2" name="level" value="B2">          
-                  <label for="lang">B2</label><br><br>
+                  <label for="b2">B2</label><br><br>
                   <input type="radio" id="c1" name="level" value="C1">
-                  <label for="lang">C1</label><br>
+                  <label for="c1">C1</label><br>
                   <input type="radio" id="c2" name="level" value="C1">          
-                  <label for="lang">C2</label><br><br>
+                  <label for="c2">C2</label><br><br>
                 </div>
                 <div>
                   <label for="firstName">Data pierwszych zajęć</label><br>
@@ -104,7 +103,7 @@
                   </select>
                   <br>
                   <br>
-                  <label for="online">Czy preferujesz zajęcia online?</label><br>
+                  <label for="onlineCheckBox">Czy preferujesz zajęcia online?</label><br>
                   <input type="checkbox" name="online" id="onlineCheckBox"><br>
                   <br>
                   <h2 style="color: #f2f2f2;">Zakończ formularz</h2><br>
