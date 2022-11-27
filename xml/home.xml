@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<homePage>
+    <navigationBar>
+        <dropdown>
+            <dropdownElement value="Skromne początki"/>
+            <dropdownElement value="Punkt zwrotny"/>
+            <dropdownElement value="Następny krok"/>
+        </dropdown>
+        <navElement text="Dlaczego"/>
+        <navElement text="Informacje"/>
+        <navElement text="Korki"/>
+        <navElement text="Zaloguj się"/>
+    </navigationBar>
+    <intro title="Krótka historia">
+        <paragraphs>
+            <paragraph subtitle="Skromne początki...">
+                <description>
+                    Już jako mały chłopiec, będąc w zerówce, pobierałem dodatkowe lekcje języka angielskiego. Pozwoliło mi to na zdobycie natychmiastowej przewagi jeśli chodzi o posiadaną wiedzę, akcentowanie, czy łatwość w jej przyswajaniu. Dzięki inicjatywie rodziców początki były dla łatwiejsze niż dla większości 
+                </description>
+            </paragraph>
+            <paragraph subtitle="Punkt zwrotny...">
+                <description>
+                    Już jako mały chłopiec, będąc w zerówce, pobierałem dodatkowe lekcje języka angielskiego. Pozwoliło mi to na zdobycie natychmiastowej przewagi jeśli chodzi o posiadaną wiedzę, akcentowanie, czy łatwość w jej przyswajaniu. Dzięki inicjatywie rodziców początki były dla łatwiejsze niż dla większości 
+                </description>
+            </paragraph>
+            <paragraph subtitle="Następny krok...">
+                <description>
+                    Mimo braku problemów z nauką, po zarzuceniu dodatkowej nauki, najpewniejszą rzeczą było dogodnienie mnie w poziomie przez resztę grupy. Nastąpiło to gdzieś w pierwszych trzech latach szkoły podstawowej. Taki zastój trwał przez jakiś czas, aż do pewnego zmieniającego życie i spojrzenie na nie momentu.<br/><br/>
+                    Tym momentem okazało się być podjęcie decyzji o wyjeździe do Szkocji z programem wymiany Cosinus <br/>
+
+                    Całotygniowe wystawienie na obcy język miało niezwykły wpływ na tempo mojej nauki. Bariera językowa, z którą nawet wielu dorosłych ma problemy, zniknęła samoistnie. Również mimowolne wysłuchiwanie wypowiedzi ludzi dookoła, w autobusie, na prezentacjach, w hotelu pozwoliło stworzyć w głowie repozytorium najbardziej użytecznych słów, które po całym wyjeździe przychodziły na myśl niekiedy łatwiej niż polskie.   
+                </description>
+            </paragraph>
+            <paragraph subtitle="Aktualna sytuacja...">
+                <description>
+                    W dniu dzisiejszym władam zarówno angielskim na poziomie C1/C2, jak i francuskim na poziomie C1, a także jestem w trakcie kursu języka hiszpańskiego i niemieckiego. W przyszłości planuję wyjechać na wymianę do jednego z dwóch ostanich krajów w celu jak najlepszego usprawnienia procesu nauki języka. Z doświadczenia wiem, że najłatwiej uczę się rozmawiając z ludźmi na ulicy, więc taki jest plan.
+                    <br/>
+                    <br/>
+                    Nie boję się także wykorzystywać każdego wyjazdu za granicę, wsłuchując się w rozmowy ludzi, próbując rozmawiać, za każdym razem wracając z nowym zasobem podstawowych słów w danym języku. 
+                </description>
+            </paragraph>
+        </paragraphs>
+    </intro>
+    <gallery>
+        <imageRow>
+            <images>
+                <image description="Paryż, Francja">
+                    <link>
+                        ../imgs/desktop/paris.jpg
+                    </link>
+                </image>
+                <image description="Kapadocja, Turcja">
+                    <link>
+                        ../imgs/desktop/turkey.jpg
+                    </link>
+                </image>
+                <image description="Kwale, Kenia">
+                    <link>
+                        ../imgs/desktop/kenya.jpg
+                    </link>
+                </image>
+                <image description="Mazury, Polska">
+                    <link>
+                        ../imgs/desktop/mazury.jpg
+                    </link>
+                </image>
+                <image description="Saalbach-Hinterglemm, Austria">
+                    <link>
+                        ../imgs/desktop/austria.jpg
+                    </link>
+                </image>
+            </images>
+        </imageRow>
+    </gallery>
+    <bottomNavigationbar>
+        <bnbElement title="Punkt zwrotny" link="#punkt-z"/>
+        <bnbElement title="Początki" link="#skromne-p"/>
+        <bnbElement title="Następny krok" link="#nastepny-k"/>
+    </bottomNavigationbar>
+</homePage>
