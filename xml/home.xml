@@ -77,4 +77,8 @@
         <bnbElement title="Początki" link="#skromne-p"/>
         <bnbElement title="Następny krok" link="#nastepny-k"/>
     </bottomNavigationbar>
+    <studentInformation group="5" gender="male">
+        <studentName>Jakub Nenczak</studentName>
+        <date>27.11.2022</date>
+    </studentInformation>
 </homePage>

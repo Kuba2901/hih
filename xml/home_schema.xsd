@@ -22,12 +22,44 @@
     <xs:element name="description" type="descriptionType"/>
     <xs:element name="link" type="linkType"/>
     <!-- Local SimpleTypesCount: 4 types -->
-    <!-- <xs:element name="introTitle" type="introTitleType"/> -->
-    <!-- <xs:element name="bnbTitle" type="bnbTitleType"/> -->
-    <!-- <xs:element name="paragraphSubtitle" type="paragraphSubtitleType"/> -->
-    <!-- <xs:element name="imageDescription" type="imageDescriptionType"/> -->
+
 
     <xs:attribute name="link" type="linkType"/>
+
+    <xs:attribute name="groupNum" use="required">
+        <xs:simpleType>
+            <xs:restriction base="xs:integer">
+                <xs:pattern value="[0-9]"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    
+    <xs:attribute name="gender" use="required">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+            <xs:pattern value="male|female"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+
+    <xs:element name="studentInformation">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="studentName" type="studentNameType"/>
+                <xs:element name="date" type="xs:date"/>
+            </xs:sequence>
+            <xs:attribute ref="groupNum" />
+            <xs:attribute ref="gender" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="studentNameType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+            <xs:maxLength value="24"/>
+        </xs:restriction>
+    </xs:simpleType>
         
     <xs:complexType name="homePageType">
         <xs:sequence>
@@ -56,7 +88,7 @@
     <xs:simpleType name="dropdownLinkType">
         <xs:restriction base="xs:string">
             <xs:minLength value="3"/>
-            <xs:maxLength value="24"/>
+            <xs:maxLength value="15"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -136,7 +168,6 @@
                                                 <xs:element ref="link"/>
                                             </xs:sequence>
                                             <xs:attribute name="description">
-                                                <!-- imageDescriptionType -->
                                                 <xs:simpleType>
                                                     <xs:restriction base="xs:string">
                                                         <xs:minLength value="3"/>
@@ -178,29 +209,5 @@
             </xs:element> 
         </xs:sequence>
     </xs:complexType>
-</xs:schema>
 
-<!-- Do zrobienia
-[X] - co najmniej 6 definicji globalnych typów złożonych (1,6pkt)
-[X] - przynajmniej 6 definicji globalnych typów prostych (1,6pkt)
-[X] - co najmniej 4 definicje lokalnych typów złożonych (0,8pkt)
-[X] - przynajmniej 4 definicje lokalnych typów prostych (0,8pkt)
-[] - stosowanie różnych modeli wyboru (sequence, choice, all) i/lub mieszanego typu zawartości (mixed) (0,3pkt)
-[X] - przynajmniej jedna definicja grupy (elementów lub atrybutów) (0,2pkt)
-[] - istnienie przynajmniej 4 poziomów zagłębienia w strukturze dokumentu xml (0,4pkt) deklaracja przynajmniej 6 atrybutów z czego przynajmniej 1 zdefiniowany globalnie i użyty przynajmniej 2 razy (1,2pkt)
-[] - różnorodne deklaracje przynajmniej 12 różnych elementów (0,6pkt), w tym przynajmniej 5 z nich powinno zawierać podelementy(1pkt) (1,6pkt)
-[] - stosowanie aspektów (ograniczeń na elementy i atrybuty)
- - length, minLength, maxLength, maxInclusive, minInclusive, maxExclusive, minExclusive, ... (wybrane min 4 różne) (0,4pkt)
- - pattern i enumeration (0,6pkt)
- - wyprowadzanie typów (0,3pkt)
- - extension - rozszerzenie istniejącego typu o dodatkowe elementy
- - przynajmniej 3 odnośniki (ref) do elementów i/lub atrybutów (ma być odniesienie i do
-atrybutu i do elementu) (0,6pkt)
- - użycie listy (list)(0,05pkt), należy określić długość listy (liczbę elementów listy) ((0,05pkt)
-oraz ograniczyć wartości, jakie mogą wystąpić na liście (0,05pkt), lista musi być również
-wykorzystana w pliku XML (0,05pkt) (0,2pkt)
- - wykorzystanie kombinacji (union) oraz użycie elementu tego typu w pliku XML (0,2pkt)
- - wykorzystanie przynajmniej 4 różnych typów wbudowanych (0,2pkt)
- - walidowanie pliku
-[] - w pliku XML przynajmniej 3 wypełnione podelementy korzenia
- -->
+</xs:schema>
