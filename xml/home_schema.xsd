@@ -26,7 +26,7 @@
 
     <xs:attribute name="link" type="linkType"/>
 
-    <xs:attribute name="groupNum" use="required">
+    <xs:attribute name="groupNum">
         <xs:simpleType>
             <xs:restriction base="xs:integer">
                 <xs:pattern value="[0-9]"/>
@@ -34,7 +34,7 @@
         </xs:simpleType>
     </xs:attribute>
     
-    <xs:attribute name="gender" use="required">
+    <xs:attribute name="gender">
         <xs:simpleType>
             <xs:restriction base="xs:string">
             <xs:pattern value="male|female"/>
@@ -42,15 +42,29 @@
         </xs:simpleType>
     </xs:attribute>
 
+    <xs:simpleType name="derivedLangListType">
+        <xs:restriction base="langList">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="langValues" type="derivedLangListType"/>
+
+
+    <xs:simpleType name="langList">
+        <xs:list itemType="xs:string"/>
+    </xs:simpleType>
+
 
     <xs:element name="studentInformation">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="studentName" type="studentNameType"/>
                 <xs:element name="date" type="xs:date"/>
+                <xs:element name="time" type="xs:time"/>
             </xs:sequence>
-            <xs:attribute ref="groupNum" />
-            <xs:attribute ref="gender" />
+            <xs:attribute ref="groupNum" use="required"/>
+            <xs:attribute ref="gender"  use="required"/>
         </xs:complexType>
     </xs:element>
 
@@ -67,6 +81,35 @@
             <xs:element ref="intro"/>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:element name="langChoice">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element name="french" type="xs:string"/>
+                <xs:element name="english" type="xs:string"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="courseDetails" type="fullLanguageDetails"/>
+
+    <xs:complexType name="languageInfo">
+      <xs:sequence>
+        <xs:element name="chosenLanguage" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="fullLanguageDetails">
+      <xs:complexContent>
+        <xs:extension base="languageInfo">
+            <xs:sequence>
+                <xs:element name="level" type="xs:string"/>
+                <xs:element name="lessonsPerWeek" type="xs:integer"/>
+            </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+    
         
     <xs:group name="navigationGroup">
         <xs:sequence>

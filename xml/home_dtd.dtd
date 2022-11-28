@@ -1,0 +1,41 @@
+<!ELEMENT homePage (navigationBar, intro, gallery, bottomNavigationBar, langValues, langChoice, courseDetails, studentInformation)>
+<!ELEMENT navigationBar (dropdown, navElement+)>
+<!ELEMENT dropdown (dropdownElement+)>
+<!ELEMENT dropdownElement (#PCDATA)>
+<!ATTLIST dropdownElement value CDATA #REQUIRED>
+<!ELEMENT navElement (#PCDATA)>
+<!ATTLIST navElement text CDATA #REQUIRED>
+<!ELEMENT intro (paragraphs)>
+<!ATTLIST intro title CDATA #REQUIRED>
+<!ELEMENT paragraphs (paragraph+)>
+<!ELEMENT paragraph (description)>
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST paragraph subtitle CDATA #REQUIRED>
+<!ELEMENT gallery (imageRow)>
+<!ELEMENT imageRow (images+)>
+<!ELEMENT images (image+)>
+<!ELEMENT image (link)>
+<!ATTLIST image description CDATA #REQUIRED>
+<!ELEMENT link (#PCDATA)>
+<!ELEMENT bottomNavigationbar (bnbElement+)>
+<!ELEMENT bnbElement (#PCDATA)>
+<!ATTLIST bnbElement
+     title CDATA #REQUIRED
+     link CDATA #REQUIRED
+>
+<!ELEMENT langValues (#PCDATA)>
+<!ELEMENT langChoice (french | english)> <!-- TU nie wiem -->
+<!ELEMENT french (#PCDATA)>
+<!ELEMENT english (#PCDATA)>
+<!ELEMENT courseDetails (chosenLanguage, level, lessonsPerWeek)>
+<!ELEMENT chosenLanguage (#PCDATA)>
+<!ELEMENT level (#PCDATA)>
+<!ELEMENT lessonsPerWeek (#PCDATA)>
+<!ELEMENT studentInformation (studentName, date, time)>
+<!ATTLIST studentInformation
+     group CDATA "5"
+    gender CDATA "male"
+>
+<!ENTITY studentName SYSTEM "Jakub Nenczak">
+<!ENTITY date SYSTEM "28.11.2022">
+<!ENTITY time SYSTEM "23:51">
