@@ -51,7 +51,6 @@ div.spacer {
   height: 7vh;
 }
 
-/* Galeria */
 div.gallery {
   margin: 5px;
   border: 1px solid #ccc;
@@ -118,7 +117,6 @@ div.text-navigation p a {
   text-decoration: none;
 }
 
-/* The dropdown container */
 .dropdown {
   float: left;
   overflow: hidden;
@@ -128,7 +126,6 @@ div.text-navigation p a {
   background-color: #3F0071;
 }
 
-/* Dropdown button */
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
@@ -136,16 +133,15 @@ div.text-navigation p a {
   color: white;
   padding: 14px 16px;
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  margin: 0;
 }
 
-/* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color:rgb(62, 50, 97);
 }
 
-/* Dropdown content (hidden by default) */
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -155,7 +151,6 @@ div.text-navigation p a {
   z-index: 1;
 }
 
-/* Links inside the dropdown */
 .dropdown-content a {
   float: none;
   color: black;
@@ -165,28 +160,15 @@ div.text-navigation p a {
   text-align: left;
 }
 
-/* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #ddd;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-@media only screen and (max-width: 600px) {
-  /* Galeria */
-  div.gallery {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    width: 10%;
-  }
-}
 
-
-/* Title fade in */
 div.fade-in {
   font-family: Arial;
   font-size: 150px;
@@ -220,4 +202,49 @@ div.fade-in {
 @-ms-keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Galeria */
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 10%;
+  }
+
+  section.intro {
+    padding: 1.6rem;
+    color: #f2f2f2;
+  }
+  
+  header h1 {
+    text-align: center;
+    font-size: 3.5rem;
+  }
+  
+  section.intro h1{
+    font-size: 2rem;
+    color: #f2f2f2;
+  }
+  
+  section.intro p {
+    font-size: 1.1rem;
+  }
+
+  .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 100%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
 }

@@ -161,26 +161,59 @@ div.spacer {
 }
 
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
-  section.intro p {
-    font-size: 1rem;
-  }
-
-  header h1 {
-    font-size: 2rem;
-  }
-
-  section.intro h2 {
-    font-size: 2rem;
-  }
-}
 
 footer {
   color: #f2f2f2;
   text-align: center;
   padding-bottom: 5vh;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+  section.intro {
+    padding: 1rem;
+    color: #f2f2f2;
+    margin: auto;
+  }
+  
+  header h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  section.intro h2{
+    font-size: 1.35rem;
+    color: #f2f2f2;
+  }
+  
+  section.intro p {
+    font-size: 1rem;
+  }
+  
+  section.intro img {
+      display: flex;
+  }
+
+  .column {
+    width: 100%;
+    padding-bottom: 20vh;
+    text-align: center;
+  }
+  
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .column img {
+    float: left;
+  }
+
+  div.spacer {
+    height: 0px;
+}
+  
 }

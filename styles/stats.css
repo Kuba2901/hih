@@ -119,13 +119,6 @@ section.intro p {
   font-size: 1.3rem;
 }
 
-section.intro img {
-    max-width: 60%;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 25px;
-    object-fit: cover;
-}
-
 div.spacer {
     height: 12vh;
 }
@@ -148,4 +141,56 @@ td {
 
 td.left {
     text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  section.intro {
+    padding: .3rem;
+    color: #f2f2f2;
+    max-width:80%;
+    margin: auto;
+  }
+  
+  header h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  section.intro h1{
+    font-size: 1.3rem;
+    color: #f2f2f2;
+  }
+
+  section.intro h2{
+    font-size: 1.3rem;
+    color: #f2f2f2;
+  }
+  
+  section.intro p {
+    font-size: .9rem;
+  }
+
+  li {
+    font-size: .9rem;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  table {
+      border: 1px solid white;
+      padding: 10px;
+  } 
+
+  td {
+      border: 1px solid white;
+      padding: 10px;
+  }
+
+  td.left {
+      text-align: center;
+  }
 }
