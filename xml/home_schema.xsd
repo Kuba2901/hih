@@ -1,256 +1,196 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <!-- Global ComplexType count: 6 types -->
-    <xs:element name="homePage" type="homePageType"/>
-    <xs:element name="navigationBar" type="navigationBarType"/>
-    <xs:element name="dropdown" type="dropdownType"/>
-    <xs:element name="paragraphs" type="paragraphsType"/>
-    <xs:element name="paragraph" type="paragraphType"/>
-    <xs:element name="gallery" type="galleryType"/>
-    <!-- 6^ -->
-    <xs:element name="bottomNavigationBar" type="bottomNavigationBarType"/>
-    <xs:element name="dropdownElement" type="dropdownElementType"/>
-    <!-- Local ComplexTypesCount: 4 types √ -->
+    <xs:complexType name="levelsType">
+        <xs:sequence>
+            <xs:element name="level" type="xs:string"/>
+            <xs:element name="level" type="xs:string"/>
+            <xs:element name="level" type="xs:string"/>
+            <xs:element name="level" type="xs:string"/>
+            <xs:element name="level" type="xs:string"/>
+            <xs:element name="level" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
 
-    
-    <!-- Global SimpleType count: 6 types -->
-    <xs:element name="dropdownName" type="dropdownNameType"/>
-    <xs:element name="dropdownLink" type="dropdownLinkType"/>
-    <xs:element name="navElement" type="navElementType"/>
-    <xs:element name="intro" type="introType"/>
-    <xs:element name="description" type="descriptionType"/>
-    <xs:element name="link" type="linkType"/>
-    <!-- Local SimpleTypesCount: 4 types -->
+    <xs:complexType name="pictureType">
+        <xs:attribute ref="source"/>
+    </xs:complexType>
 
+    <xs:complexType name="linkType">
+        <xs:attribute name="url" type="xs:string"/>
+    </xs:complexType>
 
-    <xs:attribute name="link" type="linkType"/>
+    <xs:complexType name="levelsInfoType">
+        <xs:attribute name="url" type="xs:string"/>
+    </xs:complexType>
 
-    <xs:attribute name="groupNum">
-        <xs:simpleType>
-            <xs:restriction base="xs:integer">
-                <xs:pattern value="[0-9]"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:attribute>
-    
-    <xs:attribute name="gender">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-            <xs:pattern value="male|female"/>
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:attribute>
+    <xs:complexType name="fullAuthorType">
+        <xs:complexContent>
+            <xs:extension base="authorType">
+                <xs:sequence>
+                    <xs:element name="age" type="xs:integer"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
-    <xs:simpleType name="derivedLangListType">
-        <xs:restriction base="langList">
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:element name="firstName" type="firstNameType"/>
+            <xs:element name="lastName" type="lastNameType"/>
+        </xs:sequence>
+        <xs:attribute name="age" type="xs:integer"/>
+        <xs:attribute name="gender" type="xs:string"/>
+        <xs:attribute ref="personRating"/>
+    </xs:complexType>
+
+    <xs:complexType name="reviewType">
+        <xs:sequence>
+            <xs:element name="author" type="fullAuthorType"/>
+            <xs:element name="content" type="contentType"/>
+            <xs:element name="rating" type="ratingType"/>
+        </xs:sequence>
+        <xs:attribute name="courseName" type="courseNameType"/>
+    </xs:complexType>
+
+    <xs:simpleType name="contentType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ratingType">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-5]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="courseNameType">
+        <xs:restriction base="xs:string">
             <xs:maxLength value="10"/>
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:element name="langValues" type="derivedLangListType"/>
-
-
-    <xs:simpleType name="langList">
-        <xs:list itemType="xs:string"/>
-    </xs:simpleType>
-
-
-    <xs:element name="studentInformation">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="studentName" type="studentNameType"/>
-                <xs:element name="date" type="xs:date"/>
-                <xs:element name="time" type="xs:time"/>
-            </xs:sequence>
-            <xs:attribute ref="groupNum" use="required"/>
-            <xs:attribute ref="gender"  use="required"/>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:simpleType name="studentNameType">
+    <xs:simpleType name="firstNameType">
         <xs:restriction base="xs:string">
-            <xs:minLength value="3"/>
-            <xs:maxLength value="24"/>
+            <xs:maxLength value="20"/>
         </xs:restriction>
     </xs:simpleType>
-        
-    <xs:complexType name="homePageType">
-        <xs:sequence>
-            <xs:element ref="navigationBar"/>
-            <xs:element ref="intro"/>
-        </xs:sequence>
-    </xs:complexType>
 
-    <xs:element name="langChoice">
+    <xs:simpleType name="lastNameType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="28"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="phoneNumberType">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="28"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:attribute name="personRating">
+        <xs:simpleType>
+            <xs:union memberTypes="firstNameType ratingType"/>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:element name="tutor">
         <xs:complexType>
-            <xs:choice>
-                <xs:element name="french" type="xs:string"/>
-                <xs:element name="english" type="xs:string"/>
-            </xs:choice>
+            <xs:sequence>
+                <xs:element name="firstName" type="firstNameType"/>
+                <xs:element name="lastName" type="lastNameType"/>
+                <xs:element name="phoneNumber" type="phoneNumberType"/>
+                <xs:element name="dateOfBirth" type="xs:date"/>
+                <xs:element name="timeOfBirth" type="xs:time"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="picture" type="pictureType" />
+                <xs:element name="link" type="linkType"/>
+            </xs:sequence>
+            <xs:attribute name="age" type="xs:integer"/>
+            <xs:attribute name="origin" type="xs:string"/>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="courseDetails" type="fullLanguageDetails"/>
+    <xs:attribute name="source">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="30"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
 
-    <xs:complexType name="languageInfo">
-      <xs:sequence>
-        <xs:element name="chosenLanguage" type="xs:string"/>
-      </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="fullLanguageDetails">
-      <xs:complexContent>
-        <xs:extension base="languageInfo">
+    <xs:simpleType name='derivedListOfRateElements'>
+        <xs:restriction base='listOfRateElements'>
+            <xs:maxLength value='4'/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:simpleType name='listOfRateElements'>
+        <xs:list itemType='xs:string'/>
+    </xs:simpleType>
+
+    <xs:element name="description">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:maxLength value="200"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+
+    <xs:element name="course">
+        <xs:complexType>
             <xs:sequence>
-                <xs:element name="level" type="xs:string"/>
-                <xs:element name="lessonsPerWeek" type="xs:integer"/>
+                <xs:element name="title">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:maxLength value="10"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="description"/>
+                <xs:element name="price" type="derivedListOfRateElements"/>
+                <xs:element name="levels" type="levelsType"/>
+                <xs:element name="levelsInfo" type="levelsInfoType"/>
+                <xs:element name="picture" type="pictureType"/>
             </xs:sequence>
-        </xs:extension>
-      </xs:complexContent>
-    </xs:complexType>
-    
-        
-    <xs:group name="navigationGroup">
+        </xs:complexType>
+    </xs:element>
+
+    <xs:group name="reviewGroup">
         <xs:sequence>
-            <xs:element ref="dropdown"/>
-            <xs:element ref="navElement"/>
+            <xs:element name="review" type="reviewType"/>
+            <xs:element name="review" type="reviewType"/>
         </xs:sequence>
     </xs:group>
 
-    <xs:complexType name="navigationBarType">
-        <xs:group ref="navigationGroup"/>
+    <xs:element name="reviews" type="reviewGroupType"/>
+
+    <xs:complexType name="reviewGroupType">
+        <xs:group ref="reviewGroup"/>
+        <xs:attribute ref="source"/>
     </xs:complexType>
 
-    <xs:complexType name="dropdownType">
-        <xs:sequence>
-            <xs:element ref="dropdownElement"/>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:element name="courses">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="course"/>
+                <xs:element ref="course"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-    <xs:simpleType name="dropdownLinkType">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3"/>
-            <xs:maxLength value="15"/>
-        </xs:restriction>
-    </xs:simpleType>
 
-    <xs:simpleType name="dropdownNameType">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3"/>
-            <xs:maxLength value="24"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:complexType name="dropdownElementType">
-        <xs:sequence>
-            <xs:element name="dropdownLink" type="dropdownLinkType"/>
-            <xs:element name="dropdownName" type="dropdownNameType"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:simpleType name="navElementType">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3"/>
-            <xs:maxLength value="24"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:complexType name="introType">
-        <xs:sequence>
-            <xs:element ref="paragraphs"/>
-        </xs:sequence>
-        <xs:attribute name="title">
-            <!-- introTitleType -->
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:minLength value="3"/>
-                    <xs:maxLength value="24"/>
-                </xs:restriction>
-            </xs:simpleType>        
-        </xs:attribute>
-    </xs:complexType>
-
-    <xs:complexType name="paragraphsType">
-        <xs:sequence>
-            <xs:element ref="paragraph"></xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="paragraphType">
-        <xs:sequence>
-                <xs:element ref="description"/>
-        </xs:sequence>
-        <xs:attribute name="subtitle">
-            <!-- paragraphSubtitleType -->
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:minLength value="3"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:attribute>
-    </xs:complexType>
-
-    <xs:simpleType name="descriptionType">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:complexType name="galleryType">
-        <xs:sequence>
-            <xs:element name="imageRow">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="images">
-                            <xs:complexType>
-                                <xs:sequence>
-                                    <xs:element name="image">
-                                        <xs:complexType>
-                                            <xs:sequence>
-                                                <xs:element ref="link"/>
-                                            </xs:sequence>
-                                            <xs:attribute name="description">
-                                                <xs:simpleType>
-                                                    <xs:restriction base="xs:string">
-                                                        <xs:minLength value="3"/>
-                                                        <xs:maxLength value="24"/>
-                                                    </xs:restriction>
-                                                </xs:simpleType>
-                                            </xs:attribute>
-                                        </xs:complexType>
-                                    </xs:element>
-                                </xs:sequence>
-                            </xs:complexType>
-                        </xs:element>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:simpleType name="linkType">
-        <xs:restriction base="xs:string">
-            <xs:minLength value="3"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-    <xs:complexType name="bottomNavigationBarType">
-        <xs:sequence>
-            <xs:element name="bnbElement">
-                <xs:complexType>
-                    <xs:attribute name="title">
-                        <!-- bnbTitleType -->
-                        <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                                <xs:minLength value="3"/>
-                            </xs:restriction>
-                        </xs:simpleType>                    
-                    </xs:attribute>
-                    <xs:attribute ref="link"/>
-                </xs:complexType>
-            </xs:element> 
-        </xs:sequence>
-    </xs:complexType>
-
+    <xs:element name="languageCourse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tutor"/>
+                <xs:element ref="courses"/>
+                <xs:element ref="reviews"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

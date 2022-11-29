@@ -1,10 +1,4 @@
-<!ELEMENT homePage (navigationBar, intro, gallery, bottomNavigationBar, langValues, langChoice, courseDetails, studentInformation)>
-<!ELEMENT navigationBar (dropdown, navElement+)>
-<!ELEMENT dropdown (dropdownElement+)>
-<!ELEMENT dropdownElement (#PCDATA)>
-<!ATTLIST dropdownElement value CDATA #REQUIRED>
-<!ELEMENT navElement (#PCDATA)>
-<!ATTLIST navElement text CDATA #REQUIRED>
+<!ELEMENT homePage (intro, gallery, bottomNavigationBar, langValues, langChoice, courseDetails, studentInformation)>
 <!ELEMENT intro (paragraphs)>
 <!ATTLIST intro title CDATA #REQUIRED>
 <!ELEMENT paragraphs (paragraph+)>
@@ -31,11 +25,11 @@
 <!ELEMENT chosenLanguage (#PCDATA)>
 <!ELEMENT level (#PCDATA)>
 <!ELEMENT lessonsPerWeek (#PCDATA)>
-<!ELEMENT studentInformation (studentName, date, time)>
+<!ELEMENT studentInformation (#PCDATA)>
 <!ATTLIST studentInformation
      group CDATA "5"
     gender CDATA "male"
 >
-<!ENTITY studentName SYSTEM "Jakub Nenczak">
-<!ENTITY date SYSTEM "28.11.2022">
-<!ENTITY time SYSTEM "23:51">
+<!ENTITY studentName "Jakub Nenczak">
+<!ENTITY date "28.11.2022">
+<!ENTITY time "23:51">

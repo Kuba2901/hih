@@ -91,7 +91,7 @@ div.desc {
 
 div.text-navigation {
   text-align: center;
-  height: 80;
+  height: 80px;
 }
 
 div.text-navigation p a {
@@ -173,10 +173,7 @@ div.fade-in {
   font-family: Arial;
   font-size: 150px;
   animation: fadeIn 5s;
-  -webkit-animation: fadeIn 5s;
-  -moz-animation: fadeIn 5s;
-  -o-animation: fadeIn 5s;
-  -ms-animation: fadeIn 5s;
+  
 }
 
 @keyframes fadeIn {
@@ -184,25 +181,7 @@ div.fade-in {
   100% { opacity: 1; }
 }
 
-@-moz-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
 
-@-webkit-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-o-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@-ms-keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
 
 @media only screen and (max-width: 600px) {
   /* Galeria */
