@@ -1,35 +1,39 @@
-<!ELEMENT homePage (intro, gallery, bottomNavigationBar, langValues, langChoice, courseDetails, studentInformation)>
-<!ELEMENT intro (paragraphs)>
-<!ATTLIST intro title CDATA #REQUIRED>
-<!ELEMENT paragraphs (paragraph+)>
-<!ELEMENT paragraph (description)>
-<!ELEMENT description (#PCDATA)>
-<!ATTLIST paragraph subtitle CDATA #REQUIRED>
-<!ELEMENT gallery (imageRow)>
-<!ELEMENT imageRow (images+)>
-<!ELEMENT images (image+)>
-<!ELEMENT image (link)>
-<!ATTLIST image description CDATA #REQUIRED>
+<!ELEMENT languageCourse (tutor, courses, reviews)>
+<!ELEMENT tutor (firstName, lastName, phoneNumber, dateOfBirth, timeOfBirth, description, picture, link)>
+<!ATTLIST tutor 
+     age CDATA #REQUIRED
+     origin CDATA #REQUIRED>
+<!ENTITY tutorFirstName "Jakub">
+<!ENTITY tutorLastName "Nenczak">
+<!ELEMENT firstName (#PCDATA)>
+<!ELEMENT lastName (#PCDATA)>
+<!ELEMENT phoneNumber (#PCDATA)>
+<!ELEMENT dateOfBirth (#PCDATA)>
+<!ELEMENT timeOfBirth (#PCDATA)>
+<!ELEMENT picture (#PCDATA)>
+<!ATTLIST picture source CDATA #REQUIRED>
 <!ELEMENT link (#PCDATA)>
-<!ELEMENT bottomNavigationbar (bnbElement+)>
-<!ELEMENT bnbElement (#PCDATA)>
-<!ATTLIST bnbElement
-     title CDATA #REQUIRED
-     link CDATA #REQUIRED
->
-<!ELEMENT langValues (#PCDATA)>
-<!ELEMENT langChoice (french | english)> <!-- TU nie wiem -->
-<!ELEMENT french (#PCDATA)>
-<!ELEMENT english (#PCDATA)>
-<!ELEMENT courseDetails (chosenLanguage, level, lessonsPerWeek)>
-<!ELEMENT chosenLanguage (#PCDATA)>
+<!ATTLIST link url CDATA #REQUIRED>
+<!ELEMENT courses (course+)>
+<!ELEMENT course (title, description, price, levels, levelsInfo, picture)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT levels (level+)>
 <!ELEMENT level (#PCDATA)>
-<!ELEMENT lessonsPerWeek (#PCDATA)>
-<!ELEMENT studentInformation (#PCDATA)>
-<!ATTLIST studentInformation
-     group CDATA "5"
-    gender CDATA "male"
->
-<!ENTITY studentName "Jakub Nenczak">
-<!ENTITY date "28.11.2022">
-<!ENTITY time "23:51">
+<!ELEMENT levelsInfo (#PCDATA)>
+<!ATTLIST levelsInfo url CDATA #REQUIRED>
+<!ELEMENT reviews (review+)>
+<!ELEMENT review (author, content, rating)>
+<!ELEMENT courseName (#PCDATA)>
+<!ATTLIST review 
+courseName CDATA #REQUIRED>
+<!ELEMENT author (firstName, lastName, age)>
+<!ATTLIST author 
+gender (male | female) "male"
+personRating CDATA #REQUIRED>
+<!ELEMENT male (#PCDATA)>
+<!ELEMENT female (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT content (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>

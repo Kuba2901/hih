@@ -3,12 +3,7 @@
 
     <xs:complexType name="levelsType">
         <xs:sequence>
-            <xs:element name="level" type="xs:string"/>
-            <xs:element name="level" type="xs:string"/>
-            <xs:element name="level" type="xs:string"/>
-            <xs:element name="level" type="xs:string"/>
-            <xs:element name="level" type="xs:string"/>
-            <xs:element name="level" type="xs:string"/>
+            <xs:element name="level" type="xs:string" maxOccurs="6"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -85,7 +80,7 @@
 
     <xs:simpleType name="phoneNumberType">
         <xs:restriction base="xs:string">
-            <xs:maxLength value="28"/>
+            <xs:maxLength value="9"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -147,7 +142,7 @@
                 <xs:element name="title">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
-                            <xs:maxLength value="10"/>
+                            <xs:maxLength value="36"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -162,8 +157,7 @@
 
     <xs:group name="reviewGroup">
         <xs:sequence>
-            <xs:element name="review" type="reviewType"/>
-            <xs:element name="review" type="reviewType"/>
+            <xs:element name="review" type="reviewType" maxOccurs="2"/>
         </xs:sequence>
     </xs:group>
 
@@ -177,8 +171,7 @@
     <xs:element name="courses">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="course"/>
-                <xs:element ref="course"/>
+                <xs:element ref="course" maxOccurs="2"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
